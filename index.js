@@ -11,16 +11,16 @@ app.listen(port, () => {
     <html>
     <head>
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="${decodeURIComponent(req.params["hashtagText"])} on WeiBlocked">
+    <meta name="twitter:title" content="#${decodeURIComponent(req.params["hashtagText"])}# on WeiBlocked">
     <meta name="twitter:description" content="Uncensored search results for ${decodeURIComponent(req.params["hashtagText"])} and thousands of other politically sensitive Weibo hashtags, permanently archived on the blockchain">
     <meta name="twitter:site" content="@2020WriteIn">
 
-    <meta name="og:title" content="${decodeURIComponent(req.params["hashtagText"])}">
-    <meta name="og:description" content="Uncensored search results for ${decodeURIComponent(req.params["hashtagText"])} and thousands of other politically sensitive Weibo hashtags, permanently archived on the blockchain">
+    <meta name="og:title" content="#${decodeURIComponent(req.params["hashtagText"])}# on WeiBlocked">
+    <meta name="og:description" content="Uncensored search results for #${decodeURIComponent(req.params["hashtagText"])}# and thousands of other politically sensitive Weibo hashtags, permanently archived on the blockchain">
 
     <title>${decodeURIComponent(req.params["hashtagText"])} on WeiBlocked</title></head>
     <body>
-        <p><a href="https://weibo-uncensored.github.io/#/weibo-viewer/${decodeURIComponent(req.params["hashtagText"])}/posts">View On WeiBlocked</a></p>
+        <p><a href="https://weibo-uncensored.github.io/#/weibo-viewer/#${decodeURIComponent(req.params["hashtagText"])}#/posts">View On WeiBlocked</a></p>
     </body>
     </html>`
     
@@ -30,7 +30,7 @@ app.listen(port, () => {
     <html>
      <head><title>Redirecting to WeiBlocked</title>
      <script>
-     window.location.href='https://weibo-uncensored.github.io/#/weibo-viewer/${decodeURIComponent(req.params["hashtagText"])}/posts'; 
+     window.location.href='https://weibo-uncensored.github.io/#/weibo-viewer/#${decodeURIComponent(req.params["hashtagText"])}#/posts'; 
      </script>
      </head>
      <body><center>Please Wait...</center></body>
