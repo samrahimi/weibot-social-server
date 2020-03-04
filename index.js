@@ -3,10 +3,13 @@
 var express = require("express");
 var app = express();
 var port = process.env.PORT || 3000
+var isSocialBot=(userAgent) => {
+    return (userAgent.toLowerCase().indexOf("facebook") >=0  ||  userAgent.toLowerCase().indexOf("twitter") >=0)
+}
 app.listen(port, () => {
  console.log("Server running on port "+port);
  app.get('/search-results/:hashtagText', (req, res, next) => {
-    var html = ['twitter', 'facebook', 'google'].includes(req.headers["user-agent"].toLowerCase()) ?
+    var html = (isSocialBot(req.headers["user-agent"])) ?
     `<!DOCTYPE html>
     <html>
     <head>
@@ -42,7 +45,7 @@ app.listen(port, () => {
  })
 
  app.get("/post/:txid", (req, res, next) => {
-    var html = ['twitter', 'facebook', 'google'].includes(req.headers["user-agent"].toLowerCase()) ?
+    var html = (isSocialBot(req.headers["user-agent"])) ?
     `<!DOCTYPE html>
     <html>
     <head>
